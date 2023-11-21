@@ -1,6 +1,26 @@
-<div class="flex flex-row w-full bg-bg-color">
+<div class="flex flex-col h-screen bg-bg-color">
+    <!-- Navbar -->
+
+
+    <!-- Main content container -->
+    <div class="flex flex-row flex-1">
+        <!-- Side Menu -->
+        <!-- <div class="w-1/6 bg-gray-200">
+            <app-side-menu></app-side-menu>
+        </div> -->
+        <app-side-menu></app-side-menu>
+
+        <!-- Main Content -->
+        <main class="flex-1">
+            <app-nav-bar></app-nav-bar>
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+</div>
+
+<!-- <div class="flex flex-row w-full bg-bg-color">
     <app-side-menu></app-side-menu>
     <main class="w-full">
         <router-outlet></router-outlet>
     </main>
-</div>
+</div> -->

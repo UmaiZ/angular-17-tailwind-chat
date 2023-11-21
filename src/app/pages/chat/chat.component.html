@@ -1,6 +1,6 @@
 <div class="flex flex-row max-h-screen">
     <!-- hidden w-full md:block md:w-auto -->
-    <div class="mt-8 ml-5 lg:block w-full lg:w-5/12 hidden mr-5 md:mr-0 lg:mr-0" [ngClass]="{'hidden': showside}">
+    <div class="ml-5 lg:block w-full lg:w-5/12 hidden mr-5 md:mr-0 lg:mr-0" [ngClass]="{'hidden': showside}">
         <div class="flex justify-between">
             <div class="font-semibold text-xl">
                 Messages
@@ -72,7 +72,7 @@
     <div class="flex-col hidden lg:block">
         <div class=" h-full w-0.5 ml-4 mr-4 flex-grow bg-gray-200"></div>
     </div>
-    <div class="w-full pt-5 pb-5 pr-5 h-screen ml-4 lg:ml-0" [ngClass]="{'hidden': !showside}">
+    <div class="w-full pb-5 pr-5 h-screen ml-4 lg:ml-0" [ngClass]="{'hidden': !showside}">
         <div class=" bg-white shadow-lg rounded-2xl  h-full flex flex-1 flex-col justify-between">
             <div>
                 <div class="flex justify-between p-4">
@@ -87,15 +87,11 @@
                         <img src="{{data[activeMsgIndex].userImage}}" class="h-10 w-10 rounded-full object-cover">
                         <div class="pl-3">
                             <div class="font-semibold text-large">{{data[activeMsgIndex].userName}}</div>
-                            <div *ngIf="data[activeMsgIndex].isActive"
-                                class="font-light text-xs text-gray-500 flex align-center items-center">
-                                <div class="bg-green-400 h-2 w-2 rounded-full mr-1"></div>
-                                Active
-                            </div>
-                            <div *ngIf="!data[activeMsgIndex].isActive"
-                                class="font-light text-xs text-gray-500 flex align-center items-center">
-                                <div class="bg-gray-400 h-2 w-2 rounded-full mr-1"></div>
-                                InActive
+                            <div class="font-light text-xs text-gray-500 flex align-center items-center">
+                                <div [class.bg-green-400]="data[activeMsgIndex].isActive"
+                                    [class.bg-gray-400]="!data[activeMsgIndex].isActive"
+                                    class="h-2 w-2 rounded-full mr-1"></div>
+                                {{ data[activeMsgIndex].isActive ? 'Active' : 'Inactive' }}
                             </div>
                         </div>
                     </div>
